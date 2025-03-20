@@ -3,78 +3,90 @@ import { useNavigate } from "react-router-dom";
 import "../styles/form.css";
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    birthdate: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-    image: "",
-  });
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [userImage, setUserImage] = useState(null); // for storing the image
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
       return;
     }
-    alert("Registration Successful!");
-    navigate("/");
+
+    // بيانات المستخدم التي سيتم تخزينها
+    const newUser = {
+      name,
+      email,
+      birthdate,
+      phone,
+      password,
+      userImage,
+    };
+
+    // تخزين البيانات في LocalStorage
+    localStorage.setItem("user", JSON.stringify(newUser));
+
+    // إعادة التوجيه إلى صفحة الرئيسية بعد التسجيل
+    navigate("/home");
   };
 
   return (
     <div className="form-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleRegister}>
         <input
           type="text"
-          name="name"
           placeholder="Name"
-          onChange={handleChange}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
         <input
           type="email"
-          name="email"
           placeholder="Email"
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <input type="date" name="birthdate" onChange={handleChange} required />
+        <input
+          type="date"
+          placeholder="Birthdate"
+          value={birthdate}
+          onChange={(e) => setBirthdate(e.target.value)}
+          required
+        />
         <input
           type="text"
-          name="phone"
           placeholder="Phone Number"
-          onChange={handleChange}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
         <input
           type="password"
-          name="password"
           placeholder="Password"
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
         <input
           type="password"
-          name="confirmPassword"
           placeholder="Confirm Password"
-          onChange={handleChange}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
         <input
           type="file"
-          name="image"
-          onChange={(e) =>
-            setFormData({ ...formData, image: e.target.files[0] })
-          }
+          accept="image/*"
+          onChange={(e) => setUserImage(URL.createObjectURL(e.target.files[0]))}
         />
         <button type="submit">Register</button>
       </form>

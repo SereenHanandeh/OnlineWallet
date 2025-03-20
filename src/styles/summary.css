@@ -1,0 +1,9 @@
+.summary-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.summary-container p {
+  font-size: 18px;
+  margin: 10px 0;
+}

@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid var(--secondary-color);
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+td {
+  background: var(--white);
+}
+
+.income {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.expense {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+}

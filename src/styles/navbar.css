@@ -1,0 +1,36 @@
+.navbar {
+  background: var(--primary-color);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  color: var(--white);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a,
+.navbar ul li button {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar ul li a:hover,
+.navbar ul li button:hover {
+  text-decoration: underline;
+}
