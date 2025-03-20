@@ -1,7 +1,60 @@
 const transactions = [
-    { date: "2025-03-20", description: "Salary", type: "Income", amount: 2000 },
-    { date: "2025-03-21", description: "Shopping", type: "Expense", amount: -150 },
-  ];
-  
-  export default transactions;
-  
+  {
+    id: 1,
+    userId: 1,
+    date: "2025-03-10",
+    description: "Salary",
+    type: "Income",
+    amount: 3000,
+  },
+  {
+    id: 2,
+    userId: 1,
+    date: "2025-03-12",
+    description: "Grocery Shopping",
+    type: "Expense",
+    amount: -200,
+  },
+  {
+    id: 3,
+    userId: 1,
+    date: "2025-03-15",
+    description: "Electricity Bill",
+    type: "Expense",
+    amount: -150,
+  },
+  {
+    id: 4,
+    userId: 2,
+    date: "2025-03-11",
+    description: "Freelance Payment",
+    type: "Income",
+    amount: 1500,
+  },
+  {
+    id: 5,
+    userId: 2,
+    date: "2025-03-14",
+    description: "Online Shopping",
+    type: "Expense",
+    amount: -300,
+  },
+  {
+    id: 6,
+    userId: 3,
+    date: "2025-03-09",
+    description: "Part-time Job",
+    type: "Income",
+    amount: 2500,
+  },
+  {
+    id: 7,
+    userId: 3,
+    date: "2025-03-13",
+    description: "Dining Out",
+    type: "Expense",
+    amount: -120,
+  },
+];
+
+export default transactions;

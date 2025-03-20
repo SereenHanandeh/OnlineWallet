@@ -15,12 +15,14 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((tx, index) => (
-            <tr key={index}>
+          {transactions.map((tx) => (
+            <tr key={tx.id}>
               <td>{tx.date}</td>
               <td>{tx.description}</td>
               <td>{tx.type}</td>
-              <td>${tx.amount}</td>
+              <td className={tx.amount > 0 ? "income" : "expense"}>
+                ${Math.abs(tx.amount)}
+              </td>
             </tr>
           ))}
         </tbody>
